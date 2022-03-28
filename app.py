@@ -1,14 +1,14 @@
 import streamlit as st 
 from PIL import Image
 import numpy as np
-from ISR.models import RDN
+from ISR.models import RRDN
 
 st.header("Image Upsampling")
 st.text("--"*50)
 
 def predict(img):
         lr_img = np.array(img)
-        model = RDN(weights='psnr-large')
+        model = RRDN(weights='gans')
         sr_img = model.predict(np.array(lr_img))
         return (Image.fromarray(sr_img))
 
