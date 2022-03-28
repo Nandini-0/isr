@@ -28,7 +28,7 @@ if uploaded_file is not None:
         lr_img = np.array(img)
         model = RRDN(weights='gans') 
         predictor = Predictor(input_dir='input',output_dir='output')
-        predictor.get_predictions(model=model, weights_path='weights/rdn-C6-D20-G64-G064-x2_ArtefactCancelling_epoch219.hdf5')
+        predictor.get_predictions(model=model, weights_path='rdn-C6-D20-G64-G064-x2_ArtefactCancelling_epoch219.hdf5')
         #sr_img = model.predict(np.array(lr_img))
         #pred = Image.fromarray(pred)
         #st.image(pred, caption='Upscaled Image', use_column_width=True)  
