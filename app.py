@@ -1,7 +1,7 @@
 import streamlit as st 
 from PIL import Image
 import numpy as np
-from ISR.models import 
+from ISR.models import RRDN
 
 st.header("Image Upsampling")
 st.text("--"*50)
