@@ -9,7 +9,8 @@ st.text("--"*50)
 def predict(img):
         lr_img = np.array(img)
         #model = RRDN(weights='gans')
-        model = RDN(weights='psnr-small')
+        #model = RDN(weights='psnr-small')
+        model = RDN(weights='noise-cancel')
         sr_img = model.predict(np.array(lr_img))
         return (Image.fromarray(sr_img))
 
