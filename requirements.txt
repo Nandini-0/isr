@@ -2,5 +2,5 @@ ISR
 Pillow
 Streamlit
 numpy 
-h5py
+h5py==2.10.0
 click==8.0.4
