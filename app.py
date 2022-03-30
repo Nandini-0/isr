@@ -27,7 +27,7 @@ if uploaded_file is not None:
         st.write("upscaling...")
         lr_img = np.array(img)
         
-        rdn = RRDN(arch_params={'C':4, 'D':3, 'G':64, 'G0':64, 'T':10, 'x':2})
+        rdn = RRDN(arch_params={'C':4, 'D':3, 'G':64, 'G0':64, 'T':10, 'x':2},patch_size=50)
         rdn.model.load_weights('PSNR_Y_epoch004.hdf5')
         sr_img = rdn.predict(compressed_lr_img)
         pred = Image.fromarray(sr_img)
