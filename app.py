@@ -26,6 +26,17 @@ if uploaded_file is not None:
     if st.button('Upscale Now'):
         st.write("upscaling...")
         lr_img = np.array(img)
+        
+        rdn = RRDN(arch_params={'C': 6, 'D':20, 'G':64, 'G0':64, 'x':2})
+        rdn.model.load_weights('PSNR_Y_epoch004.hdf5')
+        sr_img = rdn.predict(compressed_lr_img)
+        pred = Image.fromarray(sr_img)
+        st.image(pred, caption='Upscaled Image', use_column_width=True)  
+        
+        
+        
+        
+        '''
         model = RRDN(weights='gans') 
         predictor = Predictor(input_dir='input',output_dir='output')
         predictor = predictor.model.load_weights('PSNR_Y_epoch004.hdf5')
@@ -33,3 +44,4 @@ if uploaded_file is not None:
         #sr_img = model.predict(np.array(lr_img))
         pred = Image.fromarray(pred)
         st.image(pred, caption='Upscaled Image', use_column_width=True)  
+        '''
